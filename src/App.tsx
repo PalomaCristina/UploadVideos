@@ -6,8 +6,26 @@ import { Label } from '@radix-ui/react-label'
 import { Select, SelectContent, SelectItem, SelectTrigger,SelectValue } from "@/components/ui/select"
 import { Slider } from '@/components/ui/slider'
 import { InputFormVideo } from './components/ui/video-input-form'
-
+import { PromptSelect } from './components/prompt-select'
+import { useState } from 'react'
+import { useCompletion } from 'ai/react'
 function App() {
+  const [temperature, setTemperature] = useState(0.8)
+  const [videoId, setVideoId ] = useState<string | null>(null)
+
+
+  const { input, setInput, handleInputChange, handleSubmit, completion, isLoading } = useCompletion({
+
+    api: 'http://localhost:3333/ai/complete',
+    body: {
+      videoId,
+      temperature,
+    },
+    headers: {
+      'Content-type': 'application/json'
+    }
+  })
+
   return (
     <div className="min-h-screen flex flex-col">
       <div className="px-6 py-3 flex items-center justify-between border-b">
@@ -15,7 +33,7 @@ function App() {
 
         <div className="flex items-center gap-3">
           <span className="text-sm text-muted-foreground">
-            Desenvolvido com muito amor💜
+            Transcrevemos seu vídeo e te auxiliamos com as palavras chaves!
           </span>
 
           <Separator orientation="vertical" className="h-6" />
@@ -33,11 +51,14 @@ function App() {
             <Textarea
               className="resize-none p-4 leading-relaxed"
               placeholder="Inclua o prompt para a IA..."
+              value={input}
+              onChange={handleInputChange}
             />
             <Textarea
               className="resize-none p-4 leading-relaxed"
               placeholder="Resultado gerado pela IA"
               readOnly
+              value={completion}
             />
           </div>
 
@@ -47,22 +68,13 @@ function App() {
         </div>
 
         <aside className="w-80 space-y-6">
-          <InputFormVideo></InputFormVideo>
+          <InputFormVideo onVideoUploaded={setVideoId}></InputFormVideo>
           
           <Separator />
-          <form className="space-y-6">
-
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className='space-y-2'>
               <Label>Prompt</Label>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Selecione um prompt..." />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value='title'>Titulo do youtube</SelectItem>
-                  <SelectItem value='description'>Descrição do youtube</SelectItem>
-                </SelectContent>
-              </Select>
+              <PromptSelect onPromptSelected={setInput}/>
               <span className='block text-xs text-muted-foreground italic'></span>
             </div>
 
@@ -87,9 +99,12 @@ function App() {
             <div className='space-y-4'>
               <Label>Temperatura</Label>
               <Slider
+              
                 min={0}
                 max={1}
                 step={0.1}
+                value={[temperature]}
+                onValueChange={value => setTemperature(value[0])}
               />
               <span className='block text-xs text-muted-foreground italic leading-relaxed'>
                 Valores mais altos tendem a deixar os valores mais criativos e sem erros
@@ -98,7 +113,7 @@ function App() {
 
             <Separator />
 
-            <Button type='submit'>
+            <Button disabled={isLoading} type='submit'>
               Executar
               <Wand2 className='w-4 h-4 ml-2' />
             </Button>
