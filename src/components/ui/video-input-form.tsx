@@ -6,7 +6,7 @@ import { Button } from "./button";
 import { ChangeEvent, FormEvent, useMemo, useRef, useState } from "react";
 import { getFFmpeg } from "@/lib/ffmpeg";
 import { fetchFile } from "@ffmpeg/util";
-//import { api } from "@/lib/axios";
+import api  from "@/lib/axios";
 
 export function InputFormVideo() {
     const [videoFile, setVideoFile] = useState<File | null>(null) //estado em react é toda a variavel que queremos monitorar a troca de valores dela
@@ -69,14 +69,17 @@ export function InputFormVideo() {
         if (!videoFile) {
             return;
         }
+
+        const audioFile = await convertVideoToAudio(videoFile);
+
+        const data = new FormData()
+
+        data.append('file', audioFile)
     
-        try {
-            console.log('Converting video to audio...');
-            const audioFile = await convertVideoToAudio(videoFile);
-            console.log('Conversion successful. audioFile:', audioFile);
-        } catch (error) {
-            console.error('Error converting video to audio:', error);
-        }
+        const response = await api.post('/videos', data)
+    
+        console.log('response id video: ',response.data);
+        
     }
 
     const previewUrl = useMemo(() => {
