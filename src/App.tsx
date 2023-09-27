@@ -5,6 +5,7 @@ import { Textarea } from './components/ui/textarea'
 import { Label } from '@radix-ui/react-label'
 import { Select, SelectContent, SelectItem, SelectTrigger,SelectValue } from "@/components/ui/select"
 import { Slider } from '@/components/ui/slider'
+import { InputFormVideo } from './components/ui/video-input-form'
 
 function App() {
   return (
@@ -46,38 +47,16 @@ function App() {
         </div>
 
         <aside className="w-80 space-y-6">
-          <form className="space-y-6">
-            <label htmlFor="video" 
-            className='border flex rounded-md aspect-video cursor-pointer border-dashed text-sm flex-col gap-2 items-center justify-center text-muted-foreground hover:bg-primary/5'>Carregar vídeo
-            <FileVideo className='w-4 h-4' />
-            Selecione um video
-            </label>
-            
-            <input type="file" id='video' accept='video/mp4' className='sr-only'/>
-            
-            <Separator/>
-
-            <div className='space-y-2'>
-              <Label htmlFor='transcription_prompt'>Prompt de Transcrição</Label>
-              <Textarea id='transcription_prompt'
-              className='h-20 leading-relaxed'
-              placeholder='Inclua palavras-chave no video, separadas por virgula'/>
-            </div>
-            <Button type='submit' className='w-full' >
-              Carregar video
-              <Upload className='w-4 h-4 nl-2'/>
-            </Button>
-
-          </form>
-
+          <InputFormVideo></InputFormVideo>
+          
           <Separator />
           <form className="space-y-6">
 
-          <div className='space-y-2'>
+            <div className='space-y-2'>
               <Label>Prompt</Label>
               <Select>
                 <SelectTrigger>
-                  <SelectValue placeholder="Selecione um prompt..."/>                  
+                  <SelectValue placeholder="Selecione um prompt..." />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value='title'>Titulo do youtube</SelectItem>
@@ -87,12 +66,12 @@ function App() {
               <span className='block text-xs text-muted-foreground italic'></span>
             </div>
 
-            <Separator/>
+            <Separator />
             <div className='space-y-2'>
               <Label>Modelo</Label>
               <Select disabled defaultValue='gpt3.5'>
                 <SelectTrigger>
-                  <SelectValue/>                  
+                  <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value='gpt3.5'>GPT 3.5-turbo 16k </SelectItem>
@@ -100,7 +79,7 @@ function App() {
               </Select>
               <span className='block text-xs text-muted-foreground italic'>
                 Você poderá Customizar esta opção em breve
-                </span>
+              </span>
             </div>
 
             <Separator />
@@ -117,14 +96,14 @@ function App() {
               </span>
             </div>
 
-            <Separator/>
+            <Separator />
 
-              <Button type='submit'>
-                Executar
-                <Wand2 className='w-4 h-4 ml-2'/>
-                </Button>
+            <Button type='submit'>
+              Executar
+              <Wand2 className='w-4 h-4 ml-2' />
+            </Button>
           </form>
-            
+
         </aside>
       </main>
     </div>
