@@ -1,5 +1,4 @@
 <p align="center">
-  <a target="blank"><img src="https://ui.shadcn.com" width="200" alt="Shadcn/ui" /></a>
   developed through Rocketseat's NLW Mastery IA Bootcamp with Instructor Diego Fernandes
 </p>
 
