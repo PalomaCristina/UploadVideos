@@ -1,27 +1,45 @@
-# React + TypeScript + Vite
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://ui.shadcn.com" width="200" alt="Shadcn/ui" /></a>
+  developed through Rocketseat's NLW Mastery IA Bootcamp with Instructor Diego Fernandes
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  <p align="center"></p>
+    <p align="center">
 
-Currently, two official plugins are available:
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Description
 
-## Expanding the ESLint configuration
+An application that uploads videos, turns them into mp3s, transcribes the audio content and you can register templates for the AI to help you. Imagine that you need to upload a video to YouTube and you need ideas for the Title or a succinct description of the content, just register a prompt requesting this customization and chatGPT will help you
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+```bash
+$ npm create vite@latest
+$ npm install -D tailwindcss postcss autoprefixer
+$ npx tailwindcss init -p
+$ npm install
+$ npm -i vite (and configure a Typescript project with React)
+$ npm -i eslint
+$ npm -i fastify
+$ npm -i lucide-react
+$ npm -i axios
+$ npm -i ai
+$ npm -i tsx
+$ npm -i tailwind
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Running the app
+
+```bash
+# development
+$ npm run dev
+
+```
+## License
+
+Licence [MIT licensed](LICENSE).
