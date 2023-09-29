@@ -2,9 +2,10 @@
   developed through Rocketseat's NLW Mastery IA Bootcamp with Instructor Diego Fernandes
 </p>
 
-<video src='https://drive.google.com/file/d/1V0dHvnYLvc0wL1lVrcQbsuAulJKokpDF/view?usp=sharing' width=180/>
-  <p align="center"></p>
-    <p align="center">
+<img src='https://drive.google.com/file/d/1V0dHvnYLvc0wL1lVrcQbsuAulJKokpDF/view?usp=sharing' width=180/>
+
+<p align="center"></p>
+<p align="center">
 
 </p>
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
