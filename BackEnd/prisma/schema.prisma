@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+//migrate dev serve para atualizar o que alteramos no DB
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Video {
+  id String @id @default(uuid())
+  name String
+  path String
+  transcription String?
+  createAt DateTime @default(now())
+}
+//@id quer dizer que será uma chave primaria
+
+model Prompt {
+  id String @id @default(uuid())
+  title String
+  template String
+}
