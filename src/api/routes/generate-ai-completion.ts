@@ -1,9 +1,9 @@
 import { FastifyInstance } from 'fastify'
 import { z } from 'zod'
-import { createReadStream } from 'fs'
 import { prisma } from '../lib/prisma'
 import { openai } from '../lib/openai'
 import {streamToResponse, OpenAIStream} from 'ai'
+import 'dotenv/config'
 export async function generateAiCompletionRoute(app: FastifyInstance) { //ela deve receber a minha aplicação como parâmetro (definida em server.ts) e preciso falar que ela é fastify
     app.post('/ai/complete', async (req, res) =>{ // transação deve ser assincrona, pois iremos consultar os dados do banco de dados e não podemos "prender" a interação
 
