@@ -1,9 +1,9 @@
 import { fastify } from 'fastify'
 import { fastifyCors } from '@fastify/cors' //cors é uma forma da gente bloquear com que o backend seja acessado apenas por alguns front ends especificos
-import { getAllPromptsRoute } from './api/routes/get_all'
-import { uploadVideoPrompt } from './api/routes/upload_video'
-import { createTranscriptionRoute } from './api/routes/create-transcription'
-import { generateAiCompletionRoute } from './api/routes/generate-ai-completion'
+import { getAllPromptsRoute } from './routes/get_all'
+import { uploadVideoPrompt } from './routes/upload_video'
+import { createTranscriptionRoute } from './routes/create-transcription'
+import { generateAiCompletionRoute } from './routes/generate-ai-completion'
 
 
 const app = fastify()
