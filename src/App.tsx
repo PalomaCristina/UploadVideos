@@ -16,12 +16,13 @@ function App() {
 
   const { input, setInput, handleInputChange, handleSubmit, completion, isLoading } = useCompletion({
 
-    api: 'http://localhost:3333/ai/complete',
+    api: 'https://cgexguqownwatvlxekzj.supabase.co/ai/complete',
     body: {
       videoId,
       temperature,
     },
     headers: {
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNnZXhndXFvd253YXR2bHhla3pqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTg4NDcwODYsImV4cCI6MjAxNDQyMzA4Nn0.zkNq2RibHkzM-Q3manxut7YTzq2pjlPW55fB4kmVsBs',
       'Content-type': 'application/json'
     }
   })
