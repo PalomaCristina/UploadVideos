@@ -35,7 +35,7 @@ function App() {
 
         <div className="flex items-center gap-3">
           <span className="text-sm text-muted-foreground">
-            Transcrevemos seu vídeo e te auxiliamos com as palavras chaves!
+            Transcrevemos seu vídeo e te auxiliamos com as palavras chaves ou resumos. Use sua imaginação!
           </span>
 
           <Separator orientation="vertical" className="h-6" />
