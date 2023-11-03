@@ -18,7 +18,18 @@ An application that uploads videos, turns them into mp3s, transcribes the audio 
 ## Installation
 
 ```bash
-'npm install' or 'npm i'
+$ npm create vite@latest
+$ npm install -D tailwindcss postcss autoprefixer
+$ npx tailwindcss init -p
+$ npm install
+$ npm -i vite (and configure a Typescript project with React)
+$ npm -i eslint
+$ npm -i fastify
+$ npm -i lucide-react
+$ npm -i axios
+$ npm -i ai
+$ npm -i tsx
+$ npm -i tailwind
 
 
 ```

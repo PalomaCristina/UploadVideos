@@ -9,7 +9,6 @@ import { InputFormVideo } from './components/ui/video-input-form'
 import { PromptSelect } from './components/prompt-select'
 import { useState } from 'react'
 import { useCompletion } from 'ai/react'
-import 'dotenv/config'
 function App() {
   const [temperature, setTemperature] = useState(0.8)
   const [videoId, setVideoId ] = useState<string | null>(null)
@@ -17,13 +16,12 @@ function App() {
 
   const { input, setInput, handleInputChange, handleSubmit, completion, isLoading } = useCompletion({
 
-    api: 'https://cgexguqownwatvlxekzj.supabase.co/ai/complete',
+    api: 'http://localhost:3333/ai/complete',
     body: {
       videoId,
       temperature,
     },
     headers: {
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNnZXhndXFvd253YXR2bHhla3pqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTg4NDcwODYsImV4cCI6MjAxNDQyMzA4Nn0.zkNq2RibHkzM-Q3manxut7YTzq2pjlPW55fB4kmVsBs',
       'Content-type': 'application/json'
     }
   })
